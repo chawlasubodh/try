@@ -29,6 +29,7 @@ class TravelsController < ApplicationController
   # POST /travels.json
   def create
     @travel = Travel.new(travel_params)
+    @travel.user = current_user
 
     respond_to do |format|
       if @travel.save
