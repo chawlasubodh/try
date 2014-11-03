@@ -1,25 +1,27 @@
-<h1>Listing travels</h1>
-
-<table>
+<%- model_class = Travel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Travel %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>From</th>
-      <th>To</th>
-      <th>Total award miles</th>
-      <th>Name</th>
-      <th>Remarks</th>
-      <th>Class</th>
-      <th>Segment</th>
-      <th>Level</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:from) %></th>
+      <th><%= model_class.human_attribute_name(:to) %></th>
+      <th><%= model_class.human_attribute_name(:total_award_miles) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:remarks) %></th>
+      <th><%= model_class.human_attribute_name(:class) %></th>
+      <th><%= model_class.human_attribute_name(:segment) %></th>
+      <th><%= model_class.human_attribute_name(:level) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @travels.each do |travel| %>
       <tr>
-        <td><%= travel.user %></td>
+        <td><%= travel.id %></td>
         <td><%= travel.from %></td>
         <td><%= travel.to %></td>
         <td><%= travel.total_award_miles %></td>
@@ -28,14 +30,21 @@
         <td><%= travel.class %></td>
         <td><%= travel.segment %></td>
         <td><%= travel.level %></td>
-        <td><%= link_to 'Show', travel %></td>
-        <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
-        <td><%= link_to 'Destroy', travel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l travel.created_at, format: :long %></td>
+        <td>
+          <%= link_to travel_path(travel), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to travel_path(travel), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Travel', new_travel_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_travel_path,
+            :class => 'btn btn-primary' %>
