@@ -1,4 +1,5 @@
 ActiveAdmin.register Airline do
+  permit_params :mileage_program, :iata_code, :name
 
 
   # See permitted parameters documentation:
