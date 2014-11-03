@@ -1,4 +1,5 @@
 ActiveAdmin.register Airport do
+  permit_params :iata_code, :name, :city_name
 
 
   # See permitted parameters documentation:
