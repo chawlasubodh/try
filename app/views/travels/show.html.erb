@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @travel.user %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @travel.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @travel.to %>
+</p>
+
+<p>
+  <strong>Total award miles:</strong>
+  <%= @travel.total_award_miles %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @travel.name %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @travel.remarks %>
+</p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @travel.class %>
+</p>
+
+<p>
+  <strong>Segment:</strong>
+  <%= @travel.segment %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @travel.level %>
+</p>
+
+<%= link_to 'Edit', edit_travel_path(@travel) %> |
+<%= link_to 'Back', travels_path %>

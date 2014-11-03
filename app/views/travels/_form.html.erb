@@ -1,0 +1,19 @@
+<%= simple_form_for(@travel) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :from %>
+    <%= f.input :to %>
+    <%= f.input :total_award_miles %>
+    <%= f.input :name %>
+    <%= f.input :remarks %>
+    <%= f.input :class %>
+    <%= f.input :segment %>
+    <%= f.input :level %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
