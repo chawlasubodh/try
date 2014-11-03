@@ -1,4 +1,5 @@
 ActiveAdmin.register Travel do
+  permit_params :from, :to, :total_award_miles, :name, :remarks, :class, :segment, :level
 
 
   # See permitted parameters documentation:
